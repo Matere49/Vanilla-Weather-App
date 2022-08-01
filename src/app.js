@@ -4,6 +4,9 @@ let h3 = document.querySelector("h3");
 let date = now.getDate();
 let hours = now.getHours();
 let minutes = now.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;
+}
 let days = [
   "Sunday",
   "Monday",
@@ -33,11 +36,30 @@ h3.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}`;
 
 //Search engine
 function showWeather(response) {
-  document.querySelector("#temp").innerHTML = response.data.name;
-  document.querySelector("#temp").innerHTML = Math.round(
-    response.data.main.temp
+  let temperatureElement = document.querySelector("#temp");
+  celsiusTemperature = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let cityElement = document.querySelector("#city");
+  cityElement.innerHTML = response.data.name;
+
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+
+  let humidityElement = document.querySelector("#humidity");
+  humidityElement.innerHTML = response.data.main.humidity;
+
+  let windElement = document.querySelector("#wind");
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+
+  let iconElement = document.querySelector("#weather-icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
+
 function findCity(city) {
   let apiKey = "81600396eecd586cc7169c8c188c8cf4";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
