@@ -9,3 +9,21 @@ h3 {
 li {
   list-style: none;
 }
+
+.weather-forecast {
+  padding: 5px;
+}
+
+.weather-forecast-temp-max {
+  font-size: 14px;
+}
+
+.weather-forecast-temp-min {
+  font-size: 14px;
+  opacity: .6;
+}
+
+.signature {
+  margin-top: 50px;
+  padding: 50px;
+}
