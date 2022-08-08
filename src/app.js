@@ -34,6 +34,31 @@ let months = [
 let month = months[now.getMonth()];
 h3.innerHTML = `${day} ${month} ${date}, ${hours}:${minutes}`;
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tues", "Wed", "Thurs", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col-2">
+            <div class="forecast-date">
+              ${day}
+            </div>
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" alt="" width="50">
+            <div class="forecast-temp">
+              <span class="weather-forecast-temp-max">25°</span>
+              <span class="weather-forecast-temp-min">18°</span>
+            </div>
+          </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //Search engine
 function showWeather(response) {
   let temperatureElement = document.querySelector("#temp");
@@ -90,3 +115,4 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 findCity("Fort Worth");
+displayForecast();
