@@ -1,5 +1,17 @@
+body {
+  background-image: linear-gradient(to bottom, #fff1eb 0%, #ace0f9 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center center;
+}
+
+html {
+  height: 100%;
+}
+
 .container {
   padding-top: 10px;
+
 }
 
 h2 {
@@ -8,19 +20,33 @@ h2 {
 
 h3 {
   font-size: 20px;
+  padding: 30px;
 }
 
 li {
   list-style: none;
 }
 
-.weather-forecast {
-  padding: 5px;
+.forecast-date {
+  font-weight: bolder;
 }
 
-
-
-.signature {
-  margin-top: 50px;
+.weather-forecast {
+  margin: auto;
   padding: 50px;
+}
+
+.weather-forecast-temp-max {
+  font-size: 14px;
+}
+
+.weather-forecast-temp-min {
+  font-size: 14px;
+  opacity: .6;
+}
+
+footer {
+  text-align: center;
+  color: black;
+  padding-top: 5px;
 }
