@@ -119,7 +119,7 @@ function findCity(city) {
 function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#city-search").value;
-  findCity(city.value);
+  findCity(city);
 }
 
 function searchLocation(position) {
