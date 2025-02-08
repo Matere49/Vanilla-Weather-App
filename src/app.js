@@ -58,9 +58,6 @@ function displayForecast(response) {
               <div class="forecast-date">
                 ${formatDay(forecastDay.dt)}
               </div>
-            <img src="http://openweathermap.org/img/wn/${
-              forecastDay.weather[0].icon
-            }@2x.png" alt="" width="50">
             <div class="forecast-temp">
               <span class="weather-forecast-temp-max">${Math.round(
                 forecastDay.temp.max
@@ -78,8 +75,8 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let key = "74b3b854a9040ft43f9bbo7f4dd085b6";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon={lon}&lat={lat}&key={key}&units=imperial`;
+  let apiKey = "74b3b854a9040ft43f9bbo7f4dd085b6";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon={lon}&lat={lat}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -111,9 +108,9 @@ function showWeather(response) {
 }
 
 function findCity(city) {
-  let key = "74b3b854a9040ft43f9bbo7f4dd085b6";
+  let apiKey = "74b3b854a9040ft43f9bbo7f4dd085b6";
   let apiUrl = `
-https://api.shecodes.io/weather/v1/current?query={query}&key={key}&units=imperial`;
+https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
@@ -124,8 +121,8 @@ function handleSubmit(event) {
 }
 
 function searchLocation(position) {
-  let key = "74b3b854a9040ft43f9bbo7f4dd085b6";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon={lon}&lat={lat}&key={key}&units=imperial`;
+  let apiKey = "74b3b854a9040ft43f9bbo7f4dd085b6";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon={lon}&lat={lat}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
